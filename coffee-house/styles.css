@@ -54,6 +54,7 @@ li {
 }
 .accent {
   font-style: Italic;
+  color: var(--text-accent);
 }
 .font-body-medium {
   font-size: 16px;
@@ -111,18 +112,20 @@ li {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
 }
 .icon-dark {
   border: 1px solid var(--border-dark);
 }
-.btn-icon-dark:hover {
+.icon-dark:hover {
   background: var(--bg-container);
   border: none;
 }
 .icon-light {
   border: 1px solid var(--border-light);
 }
-.btn-icon-dark:hover {
+.icon-light:hover {
   background: var(--bg-body);
   border: none;
 }
@@ -206,10 +209,6 @@ li {
   color: var(--text-light);
 }
 
-.enjoy span {
-  color: var(--text-accent);
-}
-
 .enjoy p {
   color: var(--text-light);
 }
@@ -226,5 +225,57 @@ li {
 }
 .btn-menu:hover::after {
   opacity: 1;
-  content: url("./img/coffee-cup.png");
+  content: url("./img/coffee-cup.svg");
+}
+
+/* Favourites Coffee */
+.favourites-coffee {
+  text-align: center;
+}
+
+.favourites-coffee-title {
+  color: var(--text-dark);
+}
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.card {
+  max-width: 480px;
+}
+
+.img-card-container {
+  width: 480px;
+  height: 480px;
+  margin-bottom: 20px;
+}
+.img-card-container img {
+  width: 100%;
+}
+
+.text-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--text-dark);
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 100px;
+}
+.control {
+  width: 40px;
+  height: 4px;
+  border-radius: 100px;
+  background: var(--border-light);
+}
+
+.control.active {
+  background: var(--border-dark);
 }
