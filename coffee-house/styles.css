@@ -80,19 +80,19 @@ li {
 .btn-primary {
   display: flex;
   width: 200px;
-  /* */
   height: 64px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 100px;
+  border: none;
+  cursor: pointer;
   background: var(--bg-body);
 }
 
 .btn-secondary {
   display: flex;
   width: 200px;
-  /*  */
   height: 44px;
   justify-content: center;
   align-items: center;
@@ -141,25 +141,24 @@ li {
   padding: 20px 0;
 }
 
+.logo-container {
+  margin-bottom: 20px;
+}
 .nav-container-center {
-  background-color: yellow;
   display: flex;
   gap: 40px;
 }
 
 .menu-container {
-  background-color: yellow;
   height: 28px;
   position: relative;
 }
 .nav-item {
-  background-color: green;
   padding: 2px 0;
   position: relative;
 }
 
 .menu-item {
-  background-color: green;
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -183,4 +182,49 @@ li {
 .nav-item:hover::after,
 .menu-item:hover::after {
   width: 100%;
+}
+
+/* Enjoy */
+.enjoy-bg {
+  height: 644px;
+  border-radius: 40px;
+  background: url(./img/img-hero.jpg), lightgray 50% / cover no-repeat;
+  margin-bottom: 100px;
+}
+
+.enjoy {
+  width: 530px;
+  padding-left: 100px;
+  padding-top: 100px;
+  /* padding-bottom: 100px; */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.enjoy-title {
+  color: var(--text-light);
+}
+
+.enjoy span {
+  color: var(--text-accent);
+}
+
+.enjoy p {
+  color: var(--text-light);
+}
+
+.btn-menu {
+  color: var(--text-dark);
+  position: relative;
+}
+
+.btn-menu::after {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.btn-menu:hover::after {
+  opacity: 1;
+  content: url("./img/coffee-cup.png");
 }
