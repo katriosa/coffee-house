@@ -46,11 +46,13 @@ li {
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
+  color: var(--text-dark);
 }
 .font-h3 {
   font-size: 24px;
   font-weight: 600;
   line-height: 125%;
+  color: var(--text-dark);
 }
 .accent {
   font-style: Italic;
@@ -233,9 +235,6 @@ li {
   text-align: center;
 }
 
-.favourites-coffee-title {
-  color: var(--text-dark);
-}
 .slider {
   display: flex;
   justify-content: space-between;
@@ -278,4 +277,43 @@ li {
 
 .control.active {
   background: var(--border-dark);
+}
+
+/* About */
+.about-title {
+  margin-bottom: 40px;
+}
+
+.about-images-container {
+  display: flex;
+  gap: 40px;
+}
+
+.column-1,
+.column-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.image-wrapper.big {
+  width: 660px;
+  height: 590px;
+}
+
+.image-wrapper.small {
+  width: 660px;
+  height: 430px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 1s;
+}
+
+.image-wrapper img:hover {
+  transform: scale(0.9);
 }
