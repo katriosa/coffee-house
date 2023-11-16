@@ -287,6 +287,7 @@ li {
 .about-images-container {
   display: flex;
   gap: 40px;
+  margin-bottom: 100px;
 }
 
 .column-1,
@@ -316,4 +317,62 @@ li {
 
 .image-wrapper img:hover {
   transform: scale(0.9);
+}
+
+/* Modile-App */
+.mobile-app {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 100px;
+}
+
+.mobile-app-offer {
+  width: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: var(--text-dark);
+}
+
+.mobile-app-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-app {
+  display: flex;
+  width: 200px;
+  height: 64px;
+  align-items: center;
+  text-align: center;
+  border-radius: 100px;
+  border: 1px solid var(--border-dark);
+  background-color: transparent;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.app-icon {
+  margin-right: 8px;
+}
+
+.btn-app:hover {
+  background: var(--bg-container);
+  color: var(--text-light);
+}
+
+.btn-app:hover .app-icon {
+  fill: var(--text-light);
+}
+
+.mobile-app-image-container {
+  width: 630px;
+  height: 630px;
+}
+
+.mobile-app-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
