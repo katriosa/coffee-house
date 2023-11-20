@@ -151,10 +151,10 @@ li {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
-.logo-container {
-  margin-bottom: 20px;
+.logo-container img {
+  display: block;
 }
+
 .nav-container-center {
   display: flex;
   gap: 40px;
@@ -171,7 +171,6 @@ li {
 
 .menu-item {
   display: flex;
-  align-items: baseline;
   gap: 8px;
   position: relative;
 }
@@ -247,6 +246,12 @@ li {
   transform: translate(-50%, -50%);
 }
 
+.tab-item:first-child {
+  border: 1px solid var(--bg-container);
+  background: var(--bg-container);
+  color: var(--text-light);
+}
+
 .tab-item:hover {
   border: 1px solid var(--bg-container);
   background: var(--bg-container);
@@ -263,12 +268,13 @@ li {
 }
 
 .card-item {
-  width: 306px;
+  width: 310px;
   height: 506px;
   border: 1px solid var(--border-light);
   border-radius: 40px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .image-card-container {
@@ -304,13 +310,11 @@ li {
 }
 /* Footer */
 .footer {
-  height: 430px;
+  height: 450px;
   border-radius: 40px;
   background-color: var(--bg-container);
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 100px;
   margin-bottom: 40px;
 }
 
@@ -323,9 +327,11 @@ li {
 }
 
 .footer-offer {
+  width: 530px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin: 100px;
 }
 .social-media-icons {
   display: flex;
@@ -338,6 +344,9 @@ li {
 
 .contacts-container {
   color: var(--text-light);
+  /* display: flex;
+  flex-direction: column;
+  gap: 40px; */
 }
 
 .contact-title {
@@ -345,12 +354,15 @@ li {
   margin-bottom: 40px;
 }
 
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .contact-item {
-  display: inline-block;
   color: var(--text-light);
   position: relative;
-  padding-bottom: 4px;
-  margin-bottom: 16px;
 }
 
 .contact-item::before {
@@ -374,7 +386,7 @@ li {
   height: 2px;
   background-color: var(--text-light);
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
   transform-origin: center bottom;
