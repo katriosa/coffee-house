@@ -304,13 +304,16 @@ li {
   gap: 40px;
 }
 
-.image-wrapper.big {
+.image-wrapper {
   width: 660px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.image-wrapper.big {
   height: 590px;
 }
 
 .image-wrapper.small {
-  width: 660px;
   height: 430px;
 }
 
@@ -319,11 +322,12 @@ li {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  transition: 1s;
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
 }
 
-.image-wrapper img:hover {
-  transform: scale(0.9);
+.image-wrapper:hover img {
+  transform: scale(1);
 }
 
 /* Modile-App */
