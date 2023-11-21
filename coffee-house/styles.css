@@ -436,8 +436,8 @@ li {
   flex-direction: column;
   gap: 40px;
   margin: 100px;
-  background-color: blueviolet;
 }
+
 .social-media-icons {
   display: flex;
   gap: 12px;
@@ -450,7 +450,6 @@ li {
 .contacts-container {
   color: var(--text-light);
   padding-top: 20px;
-  background-color: blueviolet;
 }
 
 .contact-title {
@@ -464,6 +463,7 @@ li {
   position: relative;
   padding-bottom: 4px;
   margin-bottom: 16px;
+  height: 25px;
 }
 
 .contact-item::before {

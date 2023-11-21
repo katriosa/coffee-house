@@ -363,9 +363,7 @@ li {
 
 .contacts-container {
   color: var(--text-light);
-  /* display: flex;
-  flex-direction: column;
-  gap: 40px; */
+  padding-top: 20px;
 }
 
 .contact-title {
@@ -373,15 +371,13 @@ li {
   margin-bottom: 40px;
 }
 
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
 .contact-item {
+  display: inline-block;
   color: var(--text-light);
   position: relative;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  height: 25px;
 }
 
 .contact-item::before {
@@ -405,7 +401,7 @@ li {
   height: 2px;
   background-color: var(--text-light);
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   transform-origin: center bottom;
