@@ -71,6 +71,7 @@ li {
   font-size: 10px;
   font-weight: 600;
   line-height: 140%;
+  text-align: left;
 }
 .font-link-and-button {
   font-size: 16px;
@@ -215,7 +216,6 @@ li {
   width: 530px;
   padding-left: 100px;
   padding-top: 100px;
-  /* padding-bottom: 100px; */
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -232,6 +232,8 @@ li {
 .btn-menu {
   color: var(--text-dark);
   position: relative;
+  padding-left: 8px;
+  box-sizing: border-box;
 }
 
 .btn-menu::after {
@@ -248,12 +250,16 @@ li {
 #favorites-coffee {
   text-align: center;
 }
+.favorites-coffee-title {
+  margin-bottom: 40px;
+}
 
 .slider {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  padding: 0 5px;
 }
 
 .icon-dark:hover .arrow-left,
@@ -301,6 +307,10 @@ li {
 /* About */
 .about-title {
   margin-bottom: 40px;
+  font-size: 59.9px;
+  font-weight: 600;
+  line-height: 125%;
+  box-sizing: border-box;
 }
 
 .about-images-container {
@@ -373,12 +383,13 @@ li {
   border: 1px solid var(--border-dark);
   background-color: transparent;
   padding-left: 20px;
+  box-sizing: border-box;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
 }
 
 .app-icon {
-  margin-right: 8px;
+  padding-right: 8px;
 }
 
 .btn-app:hover {
@@ -403,13 +414,11 @@ li {
 
 /* Footer */
 #footer {
-  height: 430px;
+  height: 450px;
   border-radius: 40px;
   background-color: var(--bg-container);
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 100px;
   margin-bottom: 40px;
 }
 
@@ -422,9 +431,12 @@ li {
 }
 
 .footer-offer {
+  width: 530px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin: 100px;
+  background-color: blueviolet;
 }
 .social-media-icons {
   display: flex;
@@ -437,6 +449,8 @@ li {
 
 .contacts-container {
   color: var(--text-light);
+  padding-top: 20px;
+  background-color: blueviolet;
 }
 
 .contact-title {
