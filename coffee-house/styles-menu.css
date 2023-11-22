@@ -163,11 +163,10 @@ li {
 }
 
 .menu-container {
-  height: 28px;
+  height: 24px;
   position: relative;
 }
 .nav-item {
-  padding: 2px 0;
   position: relative;
 }
 
@@ -371,16 +370,17 @@ li {
   margin-bottom: 40px;
 }
 
-.contact-item {
+.contact-item,
+.contact-item-link {
   display: inline-block;
   color: var(--text-light);
   position: relative;
   padding-bottom: 4px;
   margin-bottom: 16px;
-  height: 25px;
 }
 
-.contact-item::before {
+.contact-item::before,
+.contact-item-link::before {
   margin-right: 8px;
   vertical-align: top;
 }
@@ -394,7 +394,7 @@ li {
   content: url(./img/footer/clock.svg);
 }
 
-.contact-item::after {
+.contact-item-link::after {
   content: "";
   display: block;
   width: 0;
@@ -407,6 +407,7 @@ li {
   transform-origin: center bottom;
   transition: width 0.3s ease;
 }
-.contact-item:hover::after {
+.contact-item-link:hover::after {
   width: 100%;
 }
+
