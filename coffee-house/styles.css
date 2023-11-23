@@ -141,8 +141,10 @@ li {
 
 /* Desktop 1440px*/
 .main-container {
-  max-width: 1360px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -150,8 +152,8 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
+
 }
 
 .logo-container img {
@@ -203,18 +205,36 @@ li {
   width: 100%;
 }
 
+.burger-menu-wrapper {
+  display: none;
+
+}
+.burger-menu {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-dark);
+  cursor:pointer;
+}
+
 /* Enjoy */
 .enjoy-bg {
-  height: 644px;
+  width: 100%;
+  /* height: 644px; */
   border-radius: 40px;
-  background: url(./img/img-hero.jpg), lightgray 50% / cover no-repeat;
+  background: url(./img/img-hero.jpg);
+  background-repeat:  no-repeat;
+  background-size: cover;
+  background-position: center;
   margin-bottom: 100px;
 }
 
 .enjoy {
-  width: 530px;
-  padding-left: 100px;
-  padding-top: 100px;
+  max-width: 530px;
+  padding: 100px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -241,9 +261,46 @@ li {
   transition: opacity 0.3s ease-in-out;
 }
 .btn-menu:hover::after {
-  opacity: 1;
   content: url("./img/coffee-cup.svg");
+  opacity: 1;
 }
+
+/* Tablet and Modile-screen */
+@media (max-width: 768px) and (hover:none) {
+  .nav-container-center, .menu-container {
+    display: none;
+  }
+  .burger-menu-wrapper{
+    display:block;
+  }
+  .enjoy {
+    padding: 100px 60px;
+  }
+  .btn-menu::after {
+    content: url("./img/coffee-cup.svg");
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 716px) {
+/*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
+  .font-h1 {
+  font-size: calc(42px + 30 * (100vw - 380px) / 980);
+  line-height: 115%;
+  } 
+}
+
+@media (max-width: 680px) {
+  .main-container {
+    padding: 0 16px;
+    }
+  .enjoy {
+    padding: 60px 16px;
+  } 
+}
+
+
 
 /* Favourites Coffee */
 #favorites-coffee {
