@@ -322,51 +322,6 @@ li {
 }
 
 
-/* Tablet and Modile-screen */
-@media (max-width: 768px) and (hover:none) {
-  .nav-container-center, .menu-container {
-    display: none;
-  }
-  .burger-menu-wrapper{
-    display:block;
-  }
-  .enjoy {
-    padding: 100px 60px;
-  }
-  .btn-menu::after {
-    content: url("./img/coffee-cup.svg");
-    opacity: 1;
-  }
-}
-
-
-@media (max-width: 716px) {
-/*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
-  .font-h1 {
-  font-size: calc(42px + 30 * (100vw - 380px) / 980);
-  line-height: 115%;
-  } 
-  .font-h2 {
-    font-size: calc(32px + 28 * (100vw - 380px) / 980);
-  } 
-}
-
-@media (max-width: 680px) {
-  .main-container {
-    padding: 0 16px;
-    }
-  .enjoy {
-    padding: 60px 16px;
-  } 
-  .btn-icon {
-    display: none;
-  }
-  .slider {
-    justify-content: center;
-  }
-}
-
-
 /* About */
 .about-title {
   margin-bottom: 40px;
@@ -390,7 +345,7 @@ li {
 }
 
 .image-wrapper {
-  width: 660px;
+  max-width: 660px;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -414,6 +369,57 @@ li {
 .image-wrapper:hover img {
   transform: scale(1);
 }
+
+/* Tablet and Modile-screen */
+@media (max-width: 768px) and (hover:none) {
+  .nav-container-center, .menu-container {
+    display: none;
+  }
+  .burger-menu-wrapper{
+    display:block;
+  }
+  .enjoy {
+    padding: 100px 60px;
+  }
+  .btn-menu::after {
+    content: url("./img/coffee-cup.svg");
+    opacity: 1;
+  }
+  .about-images-container{
+    flex-direction: column;
+  }
+  .image-wrapper.small{
+    display:none;
+  }
+}
+
+
+@media (max-width: 716px) {
+/*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
+  .font-h1 {
+  font-size: calc(42px + 30 * (100vw - 380px) / 980);
+  line-height: 115%;
+  } 
+  .font-h2, .about-title {
+    font-size: calc(32px + 28 * (100vw - 380px) / 980);
+  } 
+}
+
+@media (max-width: 680px) {
+  .main-container {
+    padding: 0 16px;
+    }
+  .enjoy {
+    padding: 60px 16px;
+  } 
+  .btn-icon {
+    display: none;
+  }
+  .slider {
+    justify-content: center;
+  }
+}
+
 
 /* Modile-App */
 #mobile-app {
