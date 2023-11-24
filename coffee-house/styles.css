@@ -153,7 +153,6 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-
 }
 
 .logo-container img {
@@ -207,7 +206,6 @@ li {
 
 .burger-menu-wrapper {
   display: none;
-
 }
 .burger-menu {
   display: flex;
@@ -217,7 +215,7 @@ li {
   align-items: center;
   border-radius: 50%;
   border: 1px solid var(--border-dark);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* Enjoy */
@@ -225,7 +223,7 @@ li {
   width: 100%;
   border-radius: 40px;
   background: url(./img/img-hero.jpg);
-  background-repeat:  no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin-bottom: 100px;
@@ -278,7 +276,6 @@ li {
   align-items: center;
   margin-bottom: 40px;
   padding: 0 5px;
-
 }
 
 .icon-dark:hover .arrow-left,
@@ -321,7 +318,6 @@ li {
   background: var(--border-dark);
 }
 
-
 /* About */
 .about-title {
   margin-bottom: 40px;
@@ -335,7 +331,6 @@ li {
   display: flex;
   gap: 40px;
   margin-bottom: 100px;
-  
 }
 
 .column-1,
@@ -371,7 +366,6 @@ li {
 .image-wrapper:hover img {
   transform: scale(1);
 }
-
 
 /* Modile-App */
 #mobile-app {
@@ -433,97 +427,30 @@ li {
   object-fit: contain;
 }
 
-/* Tablet and Modile-screen */
-
-@media (max-width: 768px) and (hover:none) {
-  .nav-container-center, .menu-container {
-    display: none;
-  }
-  .burger-menu-wrapper{
-    display: block;
-  }
-  .enjoy {
-    padding: 100px 60px;
-  }
-  .btn-menu::after {
-    content: url("./img/coffee-cup.svg");
-    opacity: 1;
-  }
-  .about-images-container{
-    flex-direction: column;
-  }
-  .image-wrapper.small{
-    display:none;
-  }
-}
-
-@media (max-width: 768px) {
-  #mobile-app {
-    flex-direction: column;
-  }
-  .mobile-app-image-container {
-    height:auto
-  }
-}
-
-@media (max-width: 716px) {
-  /*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
-    .font-h1 {
-    font-size: calc(42px + 30 * (100vw - 380px) / 980);
-    line-height: 115%;
-    } 
-    .font-h2, .about-title {
-      font-size: calc(32px + 28 * (100vw - 380px) / 980);
-    } 
-  }
-  
-  @media (max-width: 680px) {
-    .main-container {
-      padding: 0 16px;
-      }
-    .enjoy {
-      padding: 60px 16px;
-    } 
-    .btn-icon {
-      display: none;
-    }
-    .slider {
-      justify-content: center;
-    }
-    .mobile-app-buttons{
-      flex-direction: column;
-    }
-    #mobile-app {
-      gap:40px;
-    }
-  }
-  
-  
-
 /* Footer */
 #footer {
-  height: 450px;
+  /* height: 450px; */
+  padding: 100px;
   border-radius: 40px;
   background-color: var(--bg-container);
   display: flex;
   align-items: center;
+  gap: 100px;
   margin-bottom: 40px;
 }
-
-#footer h2 {
-  color: var(--text-light);
-}
-
-#footer span {
-  display: block;
-}
-
 .footer-offer {
-  width: 530px;
+  max-width: 530px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 100px;
+}
+
+.footer-offer h2 {
+  color: var(--text-light);
+}
+
+.footer-offer span {
+  display: block;
 }
 
 .social-media-icons {
@@ -584,4 +511,116 @@ li {
 }
 .contact-item-link:hover::after {
   width: 100%;
+}
+
+/* Tablet and Modile-screen */
+@media (hover: none) {
+  .icon-dark:hover {
+    background-color: transparent;
+    border: 1px solid var(--border-dark);
+  }
+  .icon-light:hover {
+    background-color: transparent;
+    border: 1px solid var(--border-light);
+  }
+  .icon-dark:hover .arrow-left,
+  .icon-dark:hover .arrow-right {
+    stroke: var(--text-dark);
+  }
+  .nav-item:hover::after,
+  .menu-item:hover::after {
+    width: 0%;
+  }
+  .btn-menu::after {
+    content: url("./img/coffee-cup.svg");
+    opacity: 1;
+  }
+  .image-wrapper:hover img {
+    transform: scale(1.1);
+  }
+  .btn-app:hover {
+    background: transparent;
+    color: var(--text-dark);
+  }
+
+  .btn-app:hover .app-icon {
+    fill: var(--text-dark);
+  }
+  .btn-social:hover .social-icon {
+    stroke: var(--text-light);
+  }
+  .contact-item-link:hover::after {
+    width: 0%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container-center,
+  .menu-container {
+    display: none;
+  }
+  .burger-menu-wrapper {
+    display: block;
+  }
+  .enjoy {
+    padding: 100px 60px;
+  }
+  .btn-menu::after {
+    content: url("./img/coffee-cup.svg");
+    opacity: 1;
+  }
+  .about-images-container {
+    flex-direction: column;
+  }
+  .image-wrapper.small {
+    display: none;
+  }
+  #mobile-app {
+    flex-direction: column;
+  }
+  .mobile-app-image-container {
+    height: auto;
+  }
+  #footer {
+    padding: 100px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-item {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 716px) {
+  /*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
+  .font-h1 {
+    font-size: calc(42px + 30 * (100vw - 380px) / 980);
+    line-height: 115%;
+  }
+  .font-h2,
+  .about-title {
+    font-size: calc(32px + 28 * (100vw - 380px) / 980);
+  }
+}
+
+@media (max-width: 680px) {
+  .main-container {
+    padding: 0 16px;
+  }
+  .enjoy {
+    padding: 60px 16px;
+  }
+  .btn-arrow {
+    display: none;
+  }
+  .slider {
+    justify-content: center;
+  }
+  .mobile-app-buttons {
+    flex-direction: column;
+  }
+  #mobile-app {
+    gap: 40px;
+  }
 }
