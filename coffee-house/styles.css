@@ -586,6 +586,9 @@ li {
     flex-direction: column;
     align-items: flex-start;
   }
+  .contacts-container{
+    padding-top: 0;
+  }
   .contact-item {
     margin-bottom: 0;
     padding-bottom: 0;
