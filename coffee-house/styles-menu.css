@@ -140,8 +140,10 @@ li {
 
 /* Desktop 1440px*/
 .main-container {
-  width: 1360px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 /* Header */
@@ -149,8 +151,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0;
 }
 .logo-container img {
   display: block;
@@ -202,6 +203,22 @@ li {
   position: absolute;
   bottom: 0;
 }
+
+.burger-menu-wrapper {
+  display: none;
+
+}
+.burger-menu {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-dark);
+  cursor:pointer;
+}
+
 
 .menu-content {
   display: flex;
@@ -328,29 +345,30 @@ li {
 
 /* Footer */
 #footer {
-  height: 450px;
+  padding: 100px;
   border-radius: 40px;
   background-color: var(--bg-container);
   display: flex;
   align-items: center;
+  gap: 100px;
   margin-bottom: 40px;
 }
 
-#footer h2 {
-  color: var(--text-light);
-}
-
-#footer span {
-  display: block;
-}
-
 .footer-offer {
-  width: 530px;
+  max-width: 530px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 100px;
 }
+
+.footer-offer h2 {
+  color: var(--text-light);
+}
+
+.footer-offer span {
+  display: block;
+}
+
 .social-media-icons {
   display: flex;
   gap: 12px;
@@ -411,3 +429,44 @@ li {
   width: 100%;
 }
 
+/* Tablet and Modile-screen */
+@media (hover: none) {
+  .nav-item:hover::after {
+    width: 0%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container-center,
+  .menu-container {
+    display: none;
+  }
+  .burger-menu-wrapper {
+    display: block;
+  }
+  #footer {
+    padding: 100px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-item {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 716px) {
+  .font-h1 {
+    font-size: calc(42px + 30 * (100vw - 380px) / 980);
+    line-height: 115%;
+  }
+  .font-h2 {
+    font-size: calc(32px + 28 * (100vw - 380px) / 980);
+  }
+}
+
+@media (max-width: 680px) {
+  .main-container {
+    padding: 0 16px;
+  }
+}
