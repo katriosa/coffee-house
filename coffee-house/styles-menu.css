@@ -292,6 +292,7 @@ li {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .image-card-container {
@@ -410,4 +411,3 @@ li {
 .contact-item-link:hover::after {
   width: 100%;
 }
-
