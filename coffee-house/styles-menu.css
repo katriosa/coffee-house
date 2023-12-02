@@ -202,6 +202,7 @@ li {
   background-color: var(--text-dark);
   position: absolute;
   bottom: 0;
+  cursor: auto;
 }
 
 .burger-menu-wrapper {
@@ -284,6 +285,7 @@ li {
   border: 1px solid var(--bg-container);
   background: var(--bg-container);
   color: var(--text-light);
+  cursor: auto;
 }
 
 .tab-item:hover {
