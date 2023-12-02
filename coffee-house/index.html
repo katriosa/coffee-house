@@ -8,7 +8,8 @@
     <link rel="icon" href="./img/coffee-beans.png">
   </head>
   <body>
-    <header class="header main-container font-link-and-button">
+    <div class="main-container">
+    <header class="header font-link-and-button">
       <div class="logo-container">
         <img src="./img/logo.svg" alt="logo">
       </div>
@@ -26,9 +27,13 @@
           <span><img src="./img/coffee-cup.svg" alt="coffee-cup"></span>
             </a>
       </div>
+      <div class="burger-menu-wrapper">
+        <div class="burger-menu">
+          <img class="burger-menu-icon" src="./img/menu.svg" alt="menu">
+        </div>
+      </div>
     </header>
-
-    <div class="enjoy-bg main-container">
+    <div class="enjoy-bg">
       <div class="enjoy">
         <h1 class="enjoy-title font-h1"><span class="accent">Enjoy</span> premium coffee at our charming cafe</h1>
         <p class="font-body-medium">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
@@ -37,11 +42,11 @@
       </div>
       </div>
     </div>
-
-    <section id="favorites-coffee" class="main-container">
+ 
+    <section id="favorites-coffee">
       <h2 class="favorites-coffee-title font-h2">Choose your <span class="accent"> favorite </span>coffee</h2>
       <div class="slider">
-        <button class="btn-icon icon-dark">
+        <button class="btn-icon btn-arrow icon-dark">
           <svg class="arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="#403F3D">
           <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -57,7 +62,7 @@
             <h3 class="font-h3">$5.50</h3>
           </div>         
         </div>
-        <button class="btn-icon icon-dark">
+        <button class="btn-icon btn-arrow icon-dark">
           <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#403F3D">
           <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18"  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -70,7 +75,7 @@
       </div>
     </section>
 
-    <section id="about" class="main-container">
+    <section id="about">
       <h2 class="about-title">Resource is <span class="accent">the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.</h2>
       <div class="about-images-container">
         <div class="column-1">
@@ -90,8 +95,9 @@
         </div>
         </div>
       </div>
-    </section>
-    <section id="mobile-app" class="main-container">
+    </section> 
+
+    <section id="mobile-app">
       <div class="mobile-app-offer">
         <h2 class="font-h2"><span class="accent">Download</span> our apps to start ordering</h2>
         <p class="font-body-medium">Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are</p>
@@ -124,7 +130,8 @@
         <img src="./img//mobile-screens.png" alt="mobile-screens">
       </div>
     </section>
-    <footer id="footer" class="main-container">
+  
+    <footer id="footer">
       <div class="footer-offer">
         <h2 class="font-h2">Sip, Savor, Smile.<span class="accent">It’s coffee time!</span></h2>
         <div class="social-media-icons">
@@ -162,5 +169,6 @@
         </ul>
       </div>
     </footer>
+  </div>
   </body>
 </html>
