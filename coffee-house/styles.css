@@ -315,46 +315,69 @@ li {
   opacity: 1;
 }
 
-/* Favourites Coffee */
-#favorites-coffee {
-  text-align: center;
-}
+/* Favourites Coffee */ 
 .favorites-coffee-title {
+  text-align: center;
   margin-bottom: 40px;
 }
 
 .slider {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 640px;
   margin-bottom: 40px;
   padding: 0 5px;
+  position: relative;
+  overflow: hidden;
 }
+
+.slide {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 640px;
+  transition: transform 1s;
+}
+
+.slide-content {
+  max-width: 480px;
+  text-align: center;
+}
+
+.img-slide-container img {
+  width: 100%;
+}
+
+.btn-arrow-left{
+    position: absolute;
+    left:0;
+    top: 50%;
+    z-index:1
+  }
+
+.btn-arrow-right{
+    position: absolute;
+    right:0;
+    top: 50%;
+    z-index:1
+  }
 
 .icon-dark:hover .arrow-left,
 .icon-dark:hover .arrow-right {
   stroke: var(--text-light);
 }
 
-.card {
-  max-width: 480px;
-}
-
-.img-card-container {
-  margin-bottom: 20px;
-}
-.img-card-container img {
-  width: 100%;
-}
-
-.text-card-container {
+.text-slide-container {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
   color: var(--text-dark);
 }
 
 .slider-controls {
+  /* position: relative; */
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -365,6 +388,7 @@ li {
   height: 4px;
   border-radius: 100px;
   background: var(--border-light);
+  cursor: pointer;
 }
 
 .control.active {
@@ -667,7 +691,8 @@ li {
   .enjoy {
     padding: 60px 16px;
   }
-  .btn-arrow {
+  .btn-arrow-left,
+  .btn-arrow-right {
     display: none;
   }
   .slider {
