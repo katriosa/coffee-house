@@ -370,9 +370,9 @@ li {
   transition: transform 0.5s ease-in-out;
 }
 
-.image-wrapper:hover img {
+/* .image-wrapper:hover img {
   transform: scale(1);
-}
+} */
 
 /* Modile-App */
 #mobile-app {
@@ -523,6 +523,12 @@ li {
 }
 
 /* Tablet and Modile-screen */
+@media (hover: hover) {
+  .image-wrapper:hover img {
+    transform: scale(1);
+  }
+}
+
 @media (hover: none) {
   .icon-dark:hover {
     background-color: transparent;
@@ -544,11 +550,11 @@ li {
     content: url("./img/coffee-cup.svg");
     opacity: 1;
   }
-  .image-wrapper:hover img {
-    transform: scale(1.1);
+  .btn-menu:hover {
+    padding-left: 8px;
   }
-  .image-wrapper:hover img {
-    transform: scale(1.05);
+  .image-wrapper img {
+    transform: scale(1.1);
   }
   .btn-app:hover {
     background: transparent;
@@ -596,6 +602,7 @@ li {
   .image-wrapper img {
     transform: scale(1.05);
   }
+  
   #mobile-app {
     flex-direction: column;
     align-items: flex-start;
@@ -604,7 +611,6 @@ li {
     max-width: 688px;
   }
   .mobile-app-image-container {
-    /* height: auto; */
     max-width: 688px;
     width: 100%;
   }
@@ -650,6 +656,10 @@ li {
   .slider {
     justify-content: center;
   }
+
+  .image-wrapper img {
+    transform: scale(1.23);
+}
   .mobile-app-buttons {
     flex-direction: column;
   }
