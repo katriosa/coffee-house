@@ -333,10 +333,11 @@ li {
   transform: translate(-50%, -50%);
 }
 
-.tab-item:first-child {
+.tab-item.active {
   border: 1px solid var(--bg-container);
   background: var(--bg-container);
   color: var(--text-light);
+  cursor: auto;
 }
 
 .tab-item:hover {

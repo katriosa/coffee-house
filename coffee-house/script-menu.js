@@ -18,6 +18,7 @@ const cardsMenu = () => {
 const cardsContainer = document.querySelector('.cards-container');
 const btnUpdate = document.querySelector('.btn-update-container');
 const tabsContainer = document.querySelector('.tab-navigation')
+const tabs = document.querySelectorAll('.tab-item')
 
 
 const displayCards = (cards) => {
@@ -62,9 +63,13 @@ const createCards = (categoryArr) => {
 }
 
 
-const selectTabHandler = (e) => {
+  const selectTabHandler = (e) => {
   const selectedTab = e.target.closest('.tab-item');
   if (!selectedTab) return;
+  
+  tabs.forEach((tab) => tab.classList.remove('active'))
+  selectedTab.classList.add('active')
+
   const curCategory = filterData(selectedTab.dataset.tab)
   if (curCategory) {
     createCards(curCategory)
