@@ -1,0 +1,87 @@
+import products from './products.json' assert { type: 'json' }
+
+
+//burger-menu
+const openMenu = () => {
+  const btnBurgerMenu = document.querySelector('.btn-burger-menu');
+  const menuOpen = document.querySelector('.menu-open');
+
+  btnBurgerMenu.addEventListener('click', () => {
+    btnBurgerMenu.classList.toggle('active');
+    menuOpen.classList.toggle('active');
+  });
+};
+openMenu();
+
+//Tabs
+const cardsMenu = () => {
+const cardsContainer = document.querySelector('.cards-container');
+const btnUpdate = document.querySelector('.btn-update-container');
+const tabsContainer = document.querySelector('.tab-navigation')
+
+
+const displayCards = (cards) => {
+  cardsContainer.innerHTML = '';
+  cards.forEach((card, i) => {
+    cardsContainer.insertAdjacentHTML('beforeend',
+    `<div class="card-item">
+      <div class="image-card-container">
+        <img
+          class="image-card"
+          src="./img/menu-page/products/${card.category}-${i+1}.jpg"
+          alt="${card.category}-${i+1}">
+      </div>
+      <div class="text-card-container">
+        <h3 class="font-h3">${card.name}</h3>
+        <p class="font-body-medium">${card.description}</p>
+        <div class="price-container">
+          <h3 class="font-h3"> $${card.price}</h3>
+        </div>
+      </div>
+    </div>`)
+  })
+}
+
+  
+const createCards = (categoryArr) => {
+  const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+  const getCardsToDisplay = () => {
+    if (mediaQuery.matches && categoryArr.length > 4) {
+      btnUpdate.style.display = 'flex';
+      return categoryArr.slice(0, 4);
+    } else {
+      btnUpdate.style.display = 'none';
+      return categoryArr;
+    }
+  }
+  mediaQuery.addEventListener("change", getCardsToDisplay);
+  
+  const cardsToDisplay = getCardsToDisplay();
+  displayCards(cardsToDisplay)
+}
+
+
+const selectTabHandler = (e) => {
+  const selectedTab = e.target.closest('.tab-item');
+  if (!selectedTab) return;
+  const curCategory = filterData(selectedTab.dataset.tab)
+  if (curCategory) {
+    createCards(curCategory)
+  }  
+}
+
+tabsContainer.addEventListener('click', selectTabHandler)
+
+
+const filterData = (curNameCategory = 'coffee') => {
+  const curCategory = products.filter((prod) => prod.category === curNameCategory);
+  return curCategory;
+}
+
+const initialCards = filterData();
+createCards(initialCards);
+}
+
+cardsMenu();
+

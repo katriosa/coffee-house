@@ -30,7 +30,6 @@ const slider = () => {
 
   const createControls = () => {
     slides.forEach((s, i) => {
-      console.log(s, i);
       sliderControls.insertAdjacentHTML('beforeend',
         `<div class="control" data-slide="${i}"></div>`)
     })
@@ -102,3 +101,4 @@ const slider = () => {
   sliderControls.addEventListener('click', controlsHandler)
 }
 slider();
+
