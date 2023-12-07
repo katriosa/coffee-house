@@ -18,7 +18,7 @@ const cardsMenu = () => {
   const cardsContainer = document.querySelector('.cards-container');
   const btnUpdate = document.querySelector('.load-more-btn');
   const tabsContainer = document.querySelector('.tab-navigation')
-  const tabs = document.querySelectorAll('.tab-item')
+  const tabs = document.querySelectorAll('.tab-category')
 
 
   const displayCards = (cards, clickedBtnUpdate = false) => {
@@ -105,3 +105,26 @@ const cardsMenu = () => {
 
 cardsMenu();
 
+//Modal Window
+const cardsContainer = document.querySelector('.cards-container');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.btn-close-modal')
+
+
+
+const openModal = (e) => {
+  console.log('click');
+  // const clickedCard = e.target.closest('card-item');
+  // if (!clickedCard) return;
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+ }
+
+ const closeModal = () => {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+cardsContainer.addEventListener('click', openModal);
+btnCloseModal.addEventListener('click', closeModal)
