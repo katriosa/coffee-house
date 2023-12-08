@@ -36,8 +36,8 @@ const cardsMenu = () => {
             alt="${card.category}-${i + startIndex}">
         </div>
         <div class="text-card-container">
-          <h3 class="font-h3">${card.name}</h3>
-          <p class="font-body-medium">${card.description}</p>
+          <h3 class="title font-h3">${card.name}</h3>
+          <p class="description font-body-medium">${card.description}</p>
           <div class="price-container">
             <h3 class="font-h3"> $${card.price}</h3>
           </div>
@@ -109,22 +109,115 @@ cardsMenu();
 const cardsContainer = document.querySelector('.cards-container');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.btn-close-modal')
+const modalPriceContainer = document.querySelector('.modal-price-container');
+const btnCloseModal = document.querySelector('.btn-close-modal');
+const imageContainer = document.querySelector('.modal-image-container');
+const textContainer = document.querySelector('.modal-text-container');
+const tabsSize = document.querySelector('.tabs-size')
+const tabsAdditives = document.querySelector('.tabs-additives')
+let totalPrice;
+
+const createTotalPrice = (obj, addPrice) => {
+
+  if (addPrice) {
+    modalPriceContainer.innerHTML = '';
+    totalPrice = totalPrice + addPrice
+  } else {
+    totalPrice = +obj.price
+  };
+
+  modalPriceContainer.insertAdjacentHTML('beforeend',
+    `<h3 class="font-h3">Total:</h3>
+    <h3 class="font-h3">$${totalPrice.toFixed(2)}</h3>
+    `
+  )
+}
+
+const createSizeBlock = (obj) => {
+  tabsSize.insertAdjacentHTML('beforeend',
+  `<button class="tab-item font-link-and-button active"><span class="icon">S</span>${obj.sizes.s.size}</button>
+  <button class="tab-item font-link-and-button"><span class="icon">M</span>${obj.sizes.m.size}</button>
+  <button class="tab-item font-link-and-button"><span class="icon">L</span>${obj.sizes.l.size}</button>
+  `);
+  createTotalPrice(obj);
+}
+
+const createAdditivesBlock = (obj) => {
+  obj.additives.forEach((add, i) => {
+    const tabEl = document.createElement('button');
+    tabEl.innerHTML = `<span class="icon">${i + 1}</span>${add.name}`;
+    
+    tabEl.classList.add('tab-item');
+    tabEl.classList.add('font-link-and-button');
+    tabEl.setAttribute('data-tab', add['add-price'])
+    
+    tabsAdditives.appendChild(tabEl);
+  })
+  
+
+  const chooseAdditives = (e) => {
+    const selected = e.target.closest('.tab-item');
+    if (!selected) return;
+
+    const isActive = selected.classList.toggle('active');
+    const addPrice = +selected.dataset.tab;
+    createTotalPrice(obj, isActive? addPrice: -addPrice)
+
+  }
+  tabsAdditives.addEventListener('click', chooseAdditives)  
+}
+
+const createSizeAndAdditivesBlocks = (clickedTitle) => {
+  products.forEach((obj) => {
+    if (obj.name === clickedTitle) {
+      createSizeBlock(obj)
+      createAdditivesBlock(obj)
+    }
+  })
+}
 
 
+const createModal = (clickedCard) => {
+  const imageEl = clickedCard.querySelector('.image-card');
+  const titleEl = clickedCard.querySelector('.title');
+  const descriptionEl = clickedCard.querySelector('.description');
 
-const openModal = (e) => {
-  console.log('click');
-  // const clickedCard = e.target.closest('card-item');
-  // if (!clickedCard) return;
-  modal.classList.remove('hidden');
-  overlay.classList.remove('hidden');
- }
+ 
+  imageContainer.insertAdjacentHTML('beforeend',
+  `<img src="${imageEl.getAttribute('src')}"
+      alt="product">
+    `)   
+    
+  textContainer.insertAdjacentHTML('afterbegin',
+  `<div class="modal-text-container">
+  <div>
+    <h3 class="font-h3 modal-title">${titleEl.textContent}</h3>
+    <p class="font-body-medium">${descriptionEl.textContent}</p>
+  </div>
+  `)   
+  
+  createSizeAndAdditivesBlocks(titleEl.textContent)
+  
+}
+  
 
- const closeModal = () => {
+
+const closeModal = () => {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
 
+const openModal = (e) => {
+  const clickedCard = e.target.closest('.card-item');
+  if (!clickedCard) return;
+  createModal(clickedCard);
+
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden'); 
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+}
+
+
 cardsContainer.addEventListener('click', openModal);
-btnCloseModal.addEventListener('click', closeModal)

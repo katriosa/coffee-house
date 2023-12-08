@@ -352,6 +352,10 @@ li {
   cursor: auto;
 }
 
+.tabs-additives > .tab-item.active {
+  cursor: pointer;
+}
+
 .tab-item:hover .icon,
 .tab-item.active .icon {
   background: var(--bg-body);
@@ -507,6 +511,7 @@ li {
 /* Modal */
 .modal {
   max-width: 800px;
+  width: 100%;
   border-radius: 40px;
   padding: 16px;
   background-color: var(--bg-body);
