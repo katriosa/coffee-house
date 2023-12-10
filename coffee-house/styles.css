@@ -273,21 +273,34 @@ li {
 
 /* Enjoy */
 .enjoy-bg {
-  width: 100%;
+  position: relative;
+  max-width: 1360px;
+  height: 642px;
   border-radius: 40px;
-  background: url(./img/img-hero.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   margin-bottom: 100px;
+  
+}
+
+.background-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index:0;
 }
 
 .enjoy {
+  position: absolute;
+  top:0;
+  left:0;
   max-width: 530px;
   padding: 100px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  z-index:1;
+
 }
 
 .enjoy-title {
@@ -405,9 +418,6 @@ li {
   animation: filling 7s ease-out forwards;;
 
 }
-
-
-
 
 @keyframes filling {
   from {
@@ -714,6 +724,9 @@ li {
 @media (max-width: 680px) {
   .main-container {
     padding: 0 16px;
+  }
+  .enjoy-bg {
+    height: 552px;
   }
   .enjoy {
     padding: 60px 16px;
