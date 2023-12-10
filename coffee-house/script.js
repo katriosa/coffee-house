@@ -27,6 +27,7 @@ const slider = () => {
   let touchStartX = 0;
   let touchEndX = 0;
   let touchMoveX = 0;
+  let isPaused = false;
 
   const createControls = () => {
     slides.forEach((s, i) => {
@@ -39,7 +40,8 @@ const slider = () => {
   const activateControl = (slide) => {
     document.querySelectorAll('.control').forEach(line => line.classList.remove('active'));
 
-    document.querySelector(`.control[data-slide="${slide}"]`).classList.add('active')
+    const curLineControl = document.querySelector(`.control[data-slide="${slide}"]`);
+    curLineControl.classList.add('active');
   }
 
   const goToSlide = (slide) => {
@@ -76,10 +78,12 @@ const slider = () => {
 
 
   const touchStartHandle = (e) => {
+    pauseAutoSwip();
     touchStartX = e.touches[0].clientX;
   }
  
   const touchMoveHandle = (e) => {
+    resumeAutoSwip();
     touchEndX = e.changedTouches[0].clientX;
     touchMoveX = touchEndX - touchStartX;
     if (touchMoveX > 0) prevSlide();
@@ -93,12 +97,37 @@ const slider = () => {
   }
   init();
 
+  const autoSwipHandler = () => {
+    nextSlide();
+  }
+
+  const pauseAutoSwip = () =>{
+    if (!isPaused) {
+      isPaused = true;
+
+      document.querySelectorAll('.control').forEach(line => line.classList.add('paused'));
+    }
+  }
+  
+const  resumeAutoSwip= () => {
+    if (isPaused) {
+      isPaused = false;
+      document.querySelectorAll('.control').forEach(line => line.classList.remove('paused'));
+    }
+  }
+  
+
+  touchArea.addEventListener('mouseover', pauseAutoSwip);
+  
+  touchArea.addEventListener('mouseout', resumeAutoSwip);
+
   btnRight.addEventListener('click', nextSlide)
   btnLeft.addEventListener('click', prevSlide)
 
   touchArea.addEventListener('touchstart', touchStartHandle);
   touchArea.addEventListener('touchend', touchMoveHandle);
-  sliderControls.addEventListener('click', controlsHandler)
+  sliderControls.addEventListener('click', controlsHandler);
+  sliderControls.addEventListener('animationend', autoSwipHandler)
 }
 slider();
 

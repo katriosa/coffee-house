@@ -329,6 +329,7 @@ li {
   overflow: hidden;
 }
 
+
 .slide {
   display: flex;
   justify-content: center;
@@ -377,22 +378,48 @@ li {
 }
 
 .slider-controls {
-  /* position: relative; */
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-bottom: 100px;
 }
 .control {
+  position: relative;
   width: 40px;
   height: 4px;
   border-radius: 100px;
-  background: var(--border-light);
+  background-color: var(--border-light);
   cursor: pointer;
+
 }
 
-.control.active {
-  background: var(--border-dark);
+.control.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 100px;
+  background-color:  var(--border-dark);
+  animation: filling 7s ease-out forwards;;
+
+}
+
+
+
+
+@keyframes filling {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.control.paused::before {
+  animation-play-state: paused;
 }
 
 /* About */
