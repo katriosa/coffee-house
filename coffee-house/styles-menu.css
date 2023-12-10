@@ -392,6 +392,10 @@ li {
   transform: scale(1.1);
   transition: transform 0.5s ease-in-out;
 }
+
+.card-item:hover{
+ cursor: pointer;
+}
 .card-item:hover .image-card {
   transform: scale(1);
 }
@@ -522,7 +526,7 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  transition: all 0.5s;
+  transition: opacity 0.5s;
 
 }
  
@@ -575,7 +579,7 @@ li {
   height: 100%;
   background-color: var(--bg-backdrop);
   z-index: 1;
-  transition: all 0.5s;
+  transition: opacity 0.5s;
 }
 
 .hidden {

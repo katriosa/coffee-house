@@ -112,34 +112,57 @@ const overlay = document.querySelector('.overlay');
 const modalPriceContainer = document.querySelector('.modal-price-container');
 const btnCloseModal = document.querySelector('.btn-close-modal');
 const imageContainer = document.querySelector('.modal-image-container');
-const textContainer = document.querySelector('.modal-text-container');
+const titleContainer = document.querySelector('.title-container');
 const tabsSize = document.querySelector('.tabs-size')
 const tabsAdditives = document.querySelector('.tabs-additives')
-let totalPrice;
+let totalPrice=0;
+let additivesPrice = 0;
 
-const createTotalPrice = (obj, addPrice) => {
-
-  if (addPrice) {
-    modalPriceContainer.innerHTML = '';
-    totalPrice = totalPrice + addPrice
-  } else {
-    totalPrice = +obj.price
-  };
-
+const createTotalPrice = ( ) => {
+  modalPriceContainer.innerHTML = '';
+ 
   modalPriceContainer.insertAdjacentHTML('beforeend',
     `<h3 class="font-h3">Total:</h3>
-    <h3 class="font-h3">$${totalPrice.toFixed(2)}</h3>
-    `
-  )
+    <h3 class="font-h3">$${totalPrice.toFixed(2)}</h3>`
+  );
 }
 
+ 
+
 const createSizeBlock = (obj) => {
-  tabsSize.insertAdjacentHTML('beforeend',
-  `<button class="tab-item font-link-and-button active"><span class="icon">S</span>${obj.sizes.s.size}</button>
-  <button class="tab-item font-link-and-button"><span class="icon">M</span>${obj.sizes.m.size}</button>
-  <button class="tab-item font-link-and-button"><span class="icon">L</span>${obj.sizes.l.size}</button>
-  `);
-  createTotalPrice(obj);
+  const objKeys = Object.keys(obj.sizes);
+
+  objKeys.forEach((key) => {
+    const tabEl = document.createElement('button');
+    tabEl.innerHTML = `<span class="icon">${key.toUpperCase()}</span>${obj.sizes[key].size}`;
+    
+    tabEl.classList.add('tab-item');
+    tabEl.classList.add('font-link-and-button');
+    tabEl.setAttribute('data-tab', obj.sizes[key]['add-price']);
+
+    if (key === 's') {
+      tabEl.classList.add('active');
+    }
+    tabsSize.appendChild(tabEl)
+  })
+  totalPrice =+obj.price;
+  createTotalPrice();
+
+  const chooseSize = (e) => {
+    const allTabs = tabsSize.querySelectorAll('.tab-item');
+    const selected = e.target.closest('.tab-item');
+    if (!selected) return;
+
+    allTabs.forEach((tab) => {
+      tab.classList.remove('active');
+      })
+      
+      selected.classList.add('active');
+    const addPrice = +selected.dataset.tab;
+    totalPrice = +obj.price + addPrice +additivesPrice;   
+    createTotalPrice();
+  }
+  tabsSize.addEventListener('click', chooseSize)  
 }
 
 const createAdditivesBlock = (obj) => {
@@ -149,7 +172,7 @@ const createAdditivesBlock = (obj) => {
     
     tabEl.classList.add('tab-item');
     tabEl.classList.add('font-link-and-button');
-    tabEl.setAttribute('data-tab', add['add-price'])
+    tabEl.setAttribute('data-tab', add['add-price']);
     
     tabsAdditives.appendChild(tabEl);
   })
@@ -161,8 +184,15 @@ const createAdditivesBlock = (obj) => {
 
     const isActive = selected.classList.toggle('active');
     const addPrice = +selected.dataset.tab;
-    createTotalPrice(obj, isActive? addPrice: -addPrice)
-
+    if (isActive) {
+      totalPrice += addPrice;  
+      additivesPrice+=addPrice
+    } else {
+      totalPrice -= addPrice;
+      additivesPrice-=addPrice
+    }
+  
+    createTotalPrice();
   }
   tabsAdditives.addEventListener('click', chooseAdditives)  
 }
@@ -181,43 +211,45 @@ const createModal = (clickedCard) => {
   const imageEl = clickedCard.querySelector('.image-card');
   const titleEl = clickedCard.querySelector('.title');
   const descriptionEl = clickedCard.querySelector('.description');
-
  
   imageContainer.insertAdjacentHTML('beforeend',
   `<img src="${imageEl.getAttribute('src')}"
       alt="product">
     `)   
     
-  textContainer.insertAdjacentHTML('afterbegin',
-  `<div class="modal-text-container">
-  <div>
-    <h3 class="font-h3 modal-title">${titleEl.textContent}</h3>
-    <p class="font-body-medium">${descriptionEl.textContent}</p>
-  </div>
+  titleContainer.insertAdjacentHTML('afterbegin',
+  `<h3 class="font-h3 modal-title">${titleEl.textContent}</h3>
+  <p class="font-body-medium">${descriptionEl.textContent}</p>
   `)   
   
   createSizeAndAdditivesBlocks(titleEl.textContent)
   
 }
-  
-
+const clearModal = () => {
+  imageContainer.innerHTML = '';
+  titleContainer.innerHTML = '';
+  tabsAdditives.innerHTML = '';
+  tabsSize.innerHTML = '';
+}
 
 const closeModal = () => {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
+  clearModal();
 };
 
 const openModal = (e) => {
   const clickedCard = e.target.closest('.card-item');
   if (!clickedCard) return;
+
   createModal(clickedCard);
 
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden'); 
 
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
 }
 
 
 cardsContainer.addEventListener('click', openModal);
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
