@@ -403,6 +403,7 @@ li {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .image-card-container {
