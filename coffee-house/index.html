@@ -6,6 +6,7 @@
     <title>Coffee House</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./img/coffee-beans.png">
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="main-container">
@@ -28,51 +29,98 @@
             </a>
       </div>
       <div class="burger-menu-wrapper">
-        <div class="burger-menu">
-          <img class="burger-menu-icon" src="./img/menu.svg" alt="menu">
-        </div>
+        <button class="btn-burger-menu">
+          <svg class="top-line" xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
+            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="bottom-line" xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
+            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </header>
+      <nav class="menu">
+        <ul class="nav-items">
+          <li><a class="nav-item menu-link font-burger-link" href="#favorites-coffee">Favorite coffee</a></li>
+          <li><a class="nav-item menu-link font-burger-link" href="#about">About</a></li>
+          <li><a class="nav-item menu-link font-burger-link" href="#mobile-app">Mobile app</a></li>
+          <li><a class="nav-item menu-link font-burger-link" href="#footer">Contact us</a></li>
+          <li>
+            <a class="menu-item menu-link font-burger-link" href="./menu.html">
+            Menu
+            <span><img src="./img/coffee-cup(2x).svg" alt="coffee-cup"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     <div class="enjoy-bg">
+      <video autoplay muted loop poster="./img/img-hero.jpg" class="background-video">
+        <source src="./img/video-coffee.webm" type="video/webm">
+      </video>
       <div class="enjoy">
         <h1 class="enjoy-title font-h1"><span class="accent">Enjoy</span> premium coffee at our charming cafe</h1>
         <p class="font-body-medium">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
-        <div class="btn-menu btn-primary">
-        <a class="font-link-and-button" href="./menu.html">Menu</a>
-      </div>
+        <!-- <div class="btn-menu btn-primary"> -->
+        <a class="btn-menu btn-primary font-link-and-button" href="./menu.html">Menu</a>
+      <!-- </div> -->
       </div>
     </div>
  
     <section id="favorites-coffee">
       <h2 class="favorites-coffee-title font-h2">Choose your <span class="accent"> favorite </span>coffee</h2>
       <div class="slider">
-        <button class="btn-icon btn-arrow icon-dark">
-          <svg class="arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="#403F3D">
-          <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke-linecap="round" stroke-linejoin="round"/>
+        <button class="btn-icon btn-arrow-left icon-dark">
+          <svg class="arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#403F3D">
+            <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <div class="card">
-          <div class="img-card-container">
-            <img src="./img/slider/coffee-slider-1.png" alt="coffee-slider-1">
+        <button class="btn-icon btn-arrow-right icon-dark">
+            <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#403F3D">
+              <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>  
+        </button>     
+        <div class="slide">
+          <div class="slide-content">
+            <div class="img-slide-container">
+              <img src="./img/slider/coffee-slider-1.png" alt="coffee-slider-1">
+            </div>
+            <div class="text-slide-container">
+              <h3 class="font-h3">
+                S’mores Frappuccino</h3>
+              <p class="font-body-medium">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+              <h3 class="font-h3">$5.50</h3>
+            </div> 
           </div>
-          <div class="text-card-container">
-            <h3 class="font-h3">
-              S’mores Frappuccino</h3>
-            <p class="font-body-medium">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
-            <h3 class="font-h3">$5.50</h3>
-          </div>         
         </div>
-        <button class="btn-icon btn-arrow icon-dark">
-          <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#403F3D">
-          <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18"  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="img-slide-container">
+              <img src="./img/slider/coffee-slider-2.png" alt="coffee-slider-2">
+            </div>
+            <div class="text-slide-container">
+              <h3 class="font-h3">
+                S’mores Frappuccino</h3>
+              <p class="font-body-medium">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+              <h3 class="font-h3">$5.50</h3>
+          </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="img-slide-container">
+            <img src="./img/slider/coffee-slider-3.png" alt="coffee-slider-3">
+            </div>
+            <div class="text-slide-container">
+              <h3 class="font-h3">
+                S’mores Frappuccino</h3>
+              <p class="font-body-medium">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+              <h3 class="font-h3">$5.50</h3>
+          </div>
+        </div>
+       
       </div>
-      <div class="slider-controls">
-        <div class="control active"></div>
-        <div class="control"></div>
-        <div class="control"></div>
-      </div>
+    </div>
+      <div class="slider-controls"></div>
     </section>
 
     <section id="about">
