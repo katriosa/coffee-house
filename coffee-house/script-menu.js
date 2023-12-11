@@ -2,16 +2,48 @@ import products from './products.json' assert { type: 'json' }
 
 
 //burger-menu
-const openMenu = () => {
+const toggleBurgerMenu = () => {
   const btnBurgerMenu = document.querySelector('.btn-burger-menu');
-  const menuOpen = document.querySelector('.menu-open');
+  const linksContainer = document.querySelector('.nav-items')
+  const menu = document.querySelector('.menu');
+  let isOpenMenu = false;
+
+  const openMenu = () => {
+    menu.classList.remove('menu-close');
+
+    btnBurgerMenu.classList.add('active');
+    menu.classList.add('menu-open');
+  }
+
+  const closeMenu = () => {
+    btnBurgerMenu.classList.remove('active');
+    menu.classList.remove('menu-open');
+
+    menu.classList.add('menu-close');
+  }
 
   btnBurgerMenu.addEventListener('click', () => {
-    btnBurgerMenu.classList.toggle('active');
-    menuOpen.classList.toggle('active');
+    isOpenMenu = !isOpenMenu;
+    if (isOpenMenu) {
+      openMenu();
+    } else {closeMenu()};
   });
+
+  linksContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+    const clickedLink = e.target.closest('.menu-link');
+    if (!clickedLink) return;
+    isOpenMenu = false;
+    closeMenu();
+   
+    setTimeout(() => {
+      const targetAnchor = clickedLink.getAttribute('href');
+      window.location.href = targetAnchor;
+    }, 500);
+  })
 };
-openMenu();
+toggleBurgerMenu();
+
 
 //Tabs
 const cardsMenu = () => {

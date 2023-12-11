@@ -100,16 +100,20 @@ li {
 
 .btn-secondary {
   display: flex;
-  width: 200px;
+  width: 100%;
   height: 44px;
   justify-content: center;
   align-items: center;
   border-radius: 100px;
   border: 1px solid var(--border-dark);
+  background-color: transparent;
+  color: var(--text-dark);
 }
 
 .btn-secondary:hover {
   background: var(--bg-container);
+  color: var(--text-light);
+
 }
 
 .btn-icon {
@@ -221,15 +225,49 @@ li {
   cursor: pointer;
 }
 
-.menu-open {
-  display: none;
-  justify-content: center;
-  height: 90vh;
-  padding-top: 60px; 
-  animation: menu-open 0.5s ease-out forwards;
-}
-.menu-open.active {
+.menu {
   display: flex;
+  height: 0;
+  justify-content: center;
+  visibility: hidden;
+}
+
+
+.menu-open {
+  animation: menu-open-animation 0.5s ease-out forwards;
+}
+
+.menu-close {
+  animation: menu-close-animation 0.5s ease-out forwards;
+}
+
+@keyframes menu-open-animation {
+  from {
+    height: 0;
+    transform: translateX(200%);
+    visibility: hidden;
+
+  }
+  to {
+    height: calc(100vh - 100px);
+    transform: translateX(0);
+    visibility: visible;
+
+
+  }
+}
+
+@keyframes menu-close-animation {
+  from {
+    height: calc(100vh - 100px);
+    transform: translateX(0);
+    visibility: visible;
+  }
+  to {
+    height: 0;
+    transform: translateX(200%);
+    visibility: hidden;
+  }
 }
 
 
@@ -246,28 +284,20 @@ li {
   transform: translateY(-4px) rotate(-45deg);
 }
 .nav-items {
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap:40px;
+  visibility: inherit;
 }
 
-.menu-item.burger {
+.nav-items .nav-item {
+  transition-delay: 0.5s;
+}
+
+.menu-item.menu-link {
   margin-top: 20px;
-}
-
-.menu-item.burger img {
-  width: 200%;
-}
-@keyframes menu-open {
-  from {
-    opacity: 0;
-    transform: translateY(-3rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 
@@ -300,7 +330,6 @@ li {
   flex-direction: column;
   gap: 40px;
   z-index:1;
-
 }
 
 .enjoy-title {
@@ -326,6 +355,11 @@ li {
 .btn-menu:hover::after {
   content: url("./img/coffee-cup.svg");
   opacity: 1;
+}
+
+.btn-menu a {
+  background-color: blue;
+
 }
 
 /* Favourites Coffee */ 
@@ -415,7 +449,7 @@ li {
   width: 0;
   border-radius: 100px;
   background-color:  var(--border-dark);
-  animation: filling 7s ease-out forwards;;
+  animation: filling 7s ease-out;;
 
 }
 
@@ -709,7 +743,7 @@ li {
   }
 }
 
-@media (max-width: 716px) {
+@media (max-width: 740px) {
   /*Adaptive font-size: calc( min font + (max-font - min font)*(100vw - min wight) / (max wight - min wight) */
   .font-h1 {
     font-size: calc(42px + 30 * (100vw - 380px) / 980);
