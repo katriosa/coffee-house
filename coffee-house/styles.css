@@ -345,16 +345,13 @@ li {
   position: relative;
   padding-left: 8px;
   box-sizing: border-box;
+  transition: padding-left 0.3s ease-in-out;
 }
 
 .btn-menu::after {
   content: "";
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-}
-.btn-menu:hover::after {
-  content: url("./img/coffee-cup.svg");
-  opacity: 1;
 }
 
 .btn-menu a {
@@ -490,7 +487,7 @@ li {
 }
 
 .image-wrapper {
-  max-width: 660px;
+  max-width: 100%;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -511,9 +508,9 @@ li {
   transition: transform 0.5s ease-in-out;
 }
 
-.image-wrapper:hover img {
+/* .image-wrapper:hover img {
   transform: scale(1);
-}
+} */
 
 /* Modile-App */
 #mobile-app {
@@ -573,6 +570,7 @@ li {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
 }
 
 /* Footer */
@@ -588,6 +586,7 @@ li {
 }
 .footer-offer {
   max-width: 530px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -662,6 +661,20 @@ li {
 }
 
 /* Tablet and Modile-screen */
+@media (hover: hover) {
+  .image-wrapper:hover img {
+    transform: scale(1);
+  }
+  .btn-menu:hover {
+    padding-left: 0;
+  }
+  
+  .btn-menu:hover::after {
+    content: url("./img/coffee-cup.svg");
+    opacity: 1;
+  }
+}
+
 @media (hover: none) {
   .icon-dark:hover {
     background-color: transparent;
@@ -683,7 +696,10 @@ li {
     content: url("./img/coffee-cup.svg");
     opacity: 1;
   }
-  .image-wrapper:hover img {
+  .btn-menu {
+    padding-left: 8px;
+  }
+  .image-wrapper img {
     transform: scale(1.1);
   }
   .btn-app:hover {
@@ -713,9 +729,15 @@ li {
   .enjoy {
     padding: 100px 60px;
   }
+  .btn-menu {
+    padding-left: 0;
+  }
   .btn-menu::after {
     content: url("./img/coffee-cup.svg");
     opacity: 1;
+  }
+  .slider {
+    padding: 0;
   }
   .about-images-container {
     flex-direction: column;
@@ -723,11 +745,20 @@ li {
   .image-wrapper.small {
     display: none;
   }
+  .image-wrapper img {
+    transform: scale(1.05);
+  }
+  
   #mobile-app {
     flex-direction: column;
+    align-items: flex-start;
+  }
+  .mobile-app-offer {
+    max-width: 688px;
   }
   .mobile-app-image-container {
-    height: auto;
+    max-width: 688px;
+    width: 100%;
   }
   #footer {
     padding: 100px 60px;
@@ -737,9 +768,12 @@ li {
   .contacts-container{
     padding-top: 0;
   }
+  .contact-item,
+  .contact-item-link {
+  padding-bottom: 0;
+}
   .contact-item {
     margin-bottom: 0;
-    padding-bottom: 0;
   }
 }
 
@@ -772,10 +806,24 @@ li {
   .slider {
     justify-content: center;
   }
+
+  .image-wrapper img {
+    transform: scale(1.23);
+}
   .mobile-app-buttons {
     flex-direction: column;
   }
   #mobile-app {
     gap: 40px;
+  }
+  .mobile-app-image-container {
+    height: auto;
+  }
+  #footer {
+    padding: 60px 16px;
+    gap: 40px;
+  }
+  .footer-offer span {
+    display: inline;
   }
 }

@@ -208,6 +208,7 @@ li {
   background-color: var(--text-dark);
   position: absolute;
   bottom: 0;
+  cursor: auto;
 }
 
 
@@ -466,6 +467,7 @@ li {
 
 .footer-offer {
   max-width: 530px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -619,6 +621,28 @@ li {
   .nav-item:hover::after {
     width: 0%;
   }
+  .icon-dark:hover {
+    background-color: transparent;
+    border: 1px solid var(--border-dark);
+  }
+  .icon-light:hover {
+    background-color: transparent;
+    border: 1px solid var(--border-light);
+  }
+  .btn-social:hover .social-icon {
+    stroke: var(--text-light);
+  }
+  .contact-item-link:hover::after {
+    width: 0%;
+  }
+  .tab-item:not(:first-child):hover {
+    border: 1px solid var(--border-light);
+    background-color: transparent;
+    color: var(--text-dark);
+  }
+  .card-item:hover .image-card {
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 768px) {
@@ -641,9 +665,12 @@ li {
   .contacts-container{
     padding-top: 0;
   }
+  .contact-item,
+  .contact-item-link {
+  padding-bottom: 0;
+  }
   .contact-item {
     margin-bottom: 0;
-    padding-bottom: 0;
   }
   .modal {
     max-width: 688px;
@@ -669,5 +696,15 @@ li {
   }
   .modal-image-container {
     display: none;
+  .tab-navigation {
+    gap: 8px;
   }
+  #footer {
+    padding: 60px 16px;
+    gap: 40px;
+  }
+  .footer-offer span {
+    display: inline;
+  }
+ }
 }
