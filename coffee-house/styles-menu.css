@@ -541,6 +541,10 @@ li {
 }
 
 /* Modal */
+body.modal-open {
+  overflow: hidden;
+}
+
 .modal {
   max-width: 800px;
   width: 100%;
