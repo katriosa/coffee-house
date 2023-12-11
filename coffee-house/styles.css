@@ -292,10 +292,6 @@ li {
   visibility: inherit;
 }
 
-.nav-items .nav-item {
-  transition-delay: 0.5s;
-}
-
 .menu-item.menu-link {
   margin-top: 20px;
 }

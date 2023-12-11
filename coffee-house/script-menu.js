@@ -96,6 +96,8 @@ const cardsMenu = () => {
       if (categoryArr.length > 4) {
         const restCards = categoryArr.slice(4);
         displayCards(restCards, true);
+       btnUpdate.removeEventListener('click',btnUpdateHandler);
+
       }
       btnUpdate.style.display = 'none';
     }  
@@ -105,6 +107,7 @@ const cardsMenu = () => {
     
     const cardsToDisplay = getCardsToDisplay();
     displayCards(cardsToDisplay)
+
   }
 
 
@@ -267,6 +270,7 @@ const clearModal = () => {
 const closeModal = () => {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
+  document.body.classList.remove('modal-open');
   clearModal();
 };
 
@@ -277,8 +281,8 @@ const openModal = (e) => {
   createModal(clickedCard);
 
   modal.classList.remove('hidden');
-  overlay.classList.remove('hidden'); 
-
+  overlay.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 }
 
 

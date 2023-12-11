@@ -294,7 +294,6 @@ li {
   align-items: center;
   gap:40px;
   visibility: inherit;
-
 }
 
 .menu-item.menu-link {
@@ -542,6 +541,10 @@ li {
 }
 
 /* Modal */
+body.modal-open {
+  overflow: hidden;
+}
+
 .modal {
   max-width: 800px;
   width: 100%;
