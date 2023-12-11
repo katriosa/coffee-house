@@ -96,6 +96,8 @@ const cardsMenu = () => {
       if (categoryArr.length > 4) {
         const restCards = categoryArr.slice(4);
         displayCards(restCards, true);
+       btnUpdate.removeEventListener('click',btnUpdateHandler);
+
       }
       btnUpdate.style.display = 'none';
     }  
@@ -105,6 +107,7 @@ const cardsMenu = () => {
     
     const cardsToDisplay = getCardsToDisplay();
     displayCards(cardsToDisplay)
+
   }
 
 

@@ -158,7 +158,7 @@ const  resumeAutoSwip= () => {
   touchArea.addEventListener('touchstart', touchStartHandle);
   touchArea.addEventListener('touchend', touchMoveHandle);
   sliderControls.addEventListener('click', controlsHandler);
-  // sliderControls.addEventListener('animationend', autoSwipHandler)
+  sliderControls.addEventListener('animationend', autoSwipHandler)
 }
 slider();
 
