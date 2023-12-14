@@ -10,6 +10,10 @@ body {
   background-color: var(--bg-body);
 }
 
+button {
+  font-family: inherit;
+}
+
 h1,
 h2,
 h3,
@@ -382,10 +386,13 @@ li {
   cursor: pointer;
 }
 
-.tab-item:hover .icon,
 .tab-item.active .icon {
   background: var(--bg-body);
 }
+
+/* .tab-item:hover .icon {
+  background: var(--bg-body);
+} */
 
 .cards-container {
   color: var(--text-dark);
@@ -650,6 +657,12 @@ body.modal-open {
 }
   .card-item:hover .image-card {
     transform: scale(1.1);
+  }
+}
+
+@media (hover:hover){
+  .tab-item:hover .icon {
+    background: var(--bg-body);
   }
 }
 

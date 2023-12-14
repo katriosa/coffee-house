@@ -147,8 +147,29 @@ const imageContainer = document.querySelector('.modal-image-container');
 const titleContainer = document.querySelector('.title-container');
 const tabsSize = document.querySelector('.tabs-size')
 const tabsAdditives = document.querySelector('.tabs-additives')
-let totalPrice=0;
+let totalPrice= 0;
 let additivesPrice = 0;
+
+const chooseAdditives = (e) => {
+  const selected = e.target.closest('.tab-item');
+  if (!selected) return;
+
+  const isActive = selected.classList.toggle('active');
+
+  console.log(isActive);
+  const addPrice = +selected.dataset.tab;
+  if (isActive) {
+    totalPrice += addPrice;  
+    additivesPrice+=addPrice
+  } else {
+    totalPrice -= addPrice;
+    additivesPrice-=addPrice
+  }
+
+  createTotalPrice();
+}
+
+tabsAdditives.addEventListener('click', chooseAdditives);
 
 const createTotalPrice = ( ) => {
   modalPriceContainer.innerHTML = '';
@@ -203,31 +224,12 @@ const createAdditivesBlock = (obj) => {
     tabEl.innerHTML = `<span class="icon">${i + 1}</span>${add.name}`;
     
     tabEl.classList.add('tab-item');
+    tabEl.classList.remove('active');
     tabEl.classList.add('font-link-and-button');
     tabEl.setAttribute('data-tab', add['add-price']);
     
     tabsAdditives.appendChild(tabEl);
-  })
-  
-
-  const chooseAdditives = (e) => {
-    const selected = e.target.closest('.tab-item');
-    if (!selected) return;
-
-      const isActive = selected.classList.toggle('active');
-      console.log(isActive);
-    const addPrice = +selected.dataset.tab;
-    if (isActive) {
-      totalPrice += addPrice;  
-      additivesPrice+=addPrice
-    } else {
-      totalPrice -= addPrice;
-      additivesPrice-=addPrice
-    }
-  
-    createTotalPrice();
-  }
-  tabsAdditives.addEventListener('click', chooseAdditives)  
+  }) 
 }
 
 const createSizeAndAdditivesBlocks = (clickedTitle) => {
