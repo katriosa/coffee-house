@@ -638,11 +638,16 @@ body.modal-open {
   .contact-item-link:hover::after {
     width: 0%;
   }
-  .tab-item:not(:first-child):hover {
+  .tab-item:hover {
     border: 1px solid var(--border-light);
     background-color: transparent;
     color: var(--text-dark);
   }
+  .tab-item.active {
+  border: 1px solid var(--bg-container);
+  background: var(--bg-container);
+  color: var(--text-light);
+}
   .card-item:hover .image-card {
     transform: scale(1.1);
   }

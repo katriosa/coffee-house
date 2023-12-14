@@ -111,12 +111,9 @@ const cardsMenu = () => {
   }
 
 
-
-
   const selectTabHandler = (e) => {
     const selectedTab = e.target.closest('.tab-item');
     if (!selectedTab) return;
-
     tabs.forEach((tab) => tab.classList.remove('active'))
       selectedTab.classList.add('active');
 
@@ -217,7 +214,8 @@ const createAdditivesBlock = (obj) => {
     const selected = e.target.closest('.tab-item');
     if (!selected) return;
 
-    const isActive = selected.classList.toggle('active');
+      const isActive = selected.classList.toggle('active');
+      console.log(isActive);
     const addPrice = +selected.dataset.tab;
     if (isActive) {
       totalPrice += addPrice;  
