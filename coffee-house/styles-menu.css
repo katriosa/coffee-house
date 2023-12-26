@@ -478,6 +478,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  flex: 1;
 }
 
 .footer-offer h2 {
@@ -663,6 +664,12 @@ body.modal-open {
 @media (hover:hover){
   .tab-item:hover .icon {
     background: var(--bg-body);
+  }
+}
+
+@media (max-width: 943px) {
+  #footer {
+    padding: 100px 60px;
   }
 }
 

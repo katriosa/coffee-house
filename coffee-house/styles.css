@@ -573,7 +573,6 @@ li {
 
 /* Footer */
 #footer {
-  /* height: 450px; */
   padding: 100px;
   border-radius: 40px;
   background-color: var(--bg-container);
@@ -588,6 +587,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  flex: 1;
 }
 
 .footer-offer h2 {
@@ -716,6 +716,13 @@ li {
   }
 }
 
+
+@media (max-width: 943px) {
+  #footer {
+    padding: 100px 60px;
+  }
+}
+
 @media (max-width: 796px) {
   .enjoy {
     padding: 100px 60px;
@@ -762,7 +769,7 @@ li {
     width: 100%;
   }
   #footer {
-    padding: 100px 60px;
+    /* padding: 100px 60px; */
     flex-direction: column;
     align-items: flex-start;
   }
