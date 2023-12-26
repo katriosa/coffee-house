@@ -10,6 +10,10 @@ body {
   background-color: var(--bg-body);
 }
 
+button {
+  font-family: inherit;
+}
+
 h1,
 h2,
 h3,
@@ -148,6 +152,7 @@ li {
   margin: 0 auto;
   padding: 0 40px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -382,10 +387,13 @@ li {
   cursor: pointer;
 }
 
-.tab-item:hover .icon,
 .tab-item.active .icon {
   background: var(--bg-body);
 }
+
+/* .tab-item:hover .icon {
+  background: var(--bg-body);
+} */
 
 .cards-container {
   color: var(--text-dark);
@@ -470,6 +478,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  flex: 1;
 }
 
 .footer-offer h2 {
@@ -559,9 +568,8 @@ body.modal-open {
   transform: translate(-50%, -50%);
   z-index: 2;
   transition: opacity 0.5s;
-
 }
- 
+
 .modal-image-container{
   width: 340px;
   min-width: 340px;
@@ -638,13 +646,36 @@ body.modal-open {
   .contact-item-link:hover::after {
     width: 0%;
   }
-  .tab-item:not(:first-child):hover {
+  .tab-item:hover {
     border: 1px solid var(--border-light);
     background-color: transparent;
     color: var(--text-dark);
   }
+  .tab-item.active {
+  border: 1px solid var(--bg-container);
+  background: var(--bg-container);
+  color: var(--text-light);
+}
   .card-item:hover .image-card {
     transform: scale(1.1);
+  }
+}
+
+@media (hover:hover){
+  .tab-item:hover .icon {
+    background: var(--bg-body);
+  }
+}
+
+@media (max-width: 943px) {
+  #footer {
+    padding: 100px 60px;
+  }
+}
+
+@media (max-width: 884px) {
+  .modal {
+    max-width: 700px;
   }
 }
 
@@ -676,7 +707,7 @@ body.modal-open {
     margin-bottom: 0;
   }
   .modal {
-    max-width: 688px;
+    max-width: 650px;
   }
 }
 
@@ -687,6 +718,9 @@ body.modal-open {
   }
   .font-h2 {
     font-size: calc(32px + 28 * (100vw - 380px) / 980);
+  }
+  .modal {
+    max-width: 600px;
   }
 }
 
