@@ -714,6 +714,12 @@ li {
   }
 }
 
+@media (max-width: 796px) {
+  .enjoy {
+    padding: 100px 60px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container-center,
   .menu-container {
@@ -721,9 +727,6 @@ li {
   }
   .burger-menu-wrapper {
     display: block;
-  }
-  .enjoy {
-    padding: 100px 60px;
   }
   .btn-menu {
     padding-left: 0;
@@ -771,6 +774,8 @@ li {
   .contact-item {
     margin-bottom: 0;
   }
+  
+
 }
 
 @media (max-width: 740px) {
